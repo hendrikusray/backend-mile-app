@@ -1,0 +1,9 @@
+FROM mongo:7.0
+
+# Default database
+ENV MONGO_INITDB_DATABASE=local
+
+# Copy init scripts
+COPY ../../db/init/ /docker-entrypoint-initdb.d/
+
+EXPOSE 27017

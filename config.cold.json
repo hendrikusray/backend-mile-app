@@ -1,0 +1,7 @@
+{
+  "dBMongoURI": "mongodb://app_user:app_pass_123@localhost:27017/local?authSource=admin",
+  "dBMongoMaxPoolSize": 20,
+  "dBMongoMinPoolSize": 5,
+  "dBMongoUsername": "app_user",
+  "dBMongoPassword": "app_pass_123"
+}

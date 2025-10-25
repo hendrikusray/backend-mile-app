@@ -1,0 +1,64 @@
+})
+  updated_at: new Date()
+  created_at: new Date(),
+  pin: "123456",          // atau "password" jika kamu mau ganti nama field
+  address: "ID",
+  last_name: "Tester",
+  first_name: "Hendri",
+  username: "08123",      // bebas, boleh "hendri" juga
+  user_id: "U001",
+db.users.insertOne({
+})
+  updated_at: new Date()
+  created_at: new Date(),
+  password: "123456",          // atau "password" jika kamu mau ganti nama field
+  address: "ID",
+  last_name: "Tester",
+  first_name: "Hendri",
+  username: "hendri",      // bebas, boleh "hendri" juga
+  user_id: "U001",
+db.users.insertOne({
+use local
+})
+  updated_at: new Date()
+  created_at: new Date(),
+  password: "123456",          // atau "password" jika kamu mau ganti nama field
+  address: "ID",
+  last_name: "Tester",
+  first_name: "Hendri",
+  username: "hendri",      // bebas, boleh "hendri" juga
+  user_id: "U001",
+db.users.insertOne({
+use local
+})
+  updated_at: new Date()
+  created_at: new Date(),
+  pin: "123456",          // atau "password" jika kamu mau ganti nama field
+  address: "ID",
+  last_name: "Tester",
+  first_name: "Hendri",
+  username: "08123",      // bebas, boleh "hendri" juga
+  user_id: "U001",
+db.users.insertOne({
+use local
+clear
+})
+  updated_at: new Date()
+  created_at: new Date(),
+  pin: "123456",              // jika belum ada hashing di usecase
+  address: "ID",
+  phone_number: "08123",
+  last_name: "Tester",
+  first_name: "Hendri",
+  user_id: "U001",
+db.users.insertOne({
+use local
+db.getUser("app_user")
+})
+  ]
+    { role: "readWrite", db: "local" }
+  roles: [
+  pwd: "app_pass_123",
+  user: "app_user",
+db.getUser("app_user")
+use admin
