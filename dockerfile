@@ -1,17 +1,24 @@
-# ---- build stage ----
+# -------- build stage --------
 FROM golang:1.23-alpine AS build
-WORKDIR /app
+WORKDIR /src
+
+# cache deps
 COPY go.mod go.sum ./
 RUN go mod download
-COPY . .
-# build dari app/main.go
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o server app/main.go
 
-# ---- run stage ----
-FROM gcr.io/distroless/base-debian12
+# copy source
+COPY . .
+
+# build binary (sesuaikan path main.go kamu)
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+    go build -ldflags="-s -w" -o /out ./app/main.go
+
+
+FROM gcr.io/distroless/static-debian12
 WORKDIR /app
-COPY --from=build /app/server /app/server
-COPY config.cold.json /app/config.cold.json
+COPY --from=build /out /app/server
+
+# Railway kasih PORT via env
+ENV PORT=8080
 EXPOSE 8080
-USER 65532:65532
-ENTRYPOINT ["/app/server"]
+CMD ["/app/server"]
