@@ -2,6 +2,8 @@ package config
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/spf13/viper"
 )
 
@@ -18,8 +20,7 @@ type ColdEnv struct {
 	DBMongoPassword    string `json:"dBMongoPassword" yaml:"dBMongoPassword"`
 }
 
-type HotEnv struct {
-}
+type HotEnv struct{}
 
 func StartConfig() error {
 	fmt.Println("Config Started ...")
@@ -29,13 +30,15 @@ func StartConfig() error {
 	v.AddConfigPath(".")
 	v.AutomaticEnv()
 
-	err := v.ReadInConfig()
-	if err != nil {
+	if err := v.ReadInConfig(); err != nil {
 		return err
 	}
-	err = v.Unmarshal(&Cold)
-	if err != nil {
+	if err := v.Unmarshal(&Cold); err != nil {
 		return err
+	}
+
+	if uri := os.Getenv("MONGO_URI"); uri != "" {
+		Cold.DBMongoURI = uri
 	}
 
 	fmt.Println("Config generated, COLD value", Cold)
