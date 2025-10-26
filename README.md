@@ -1,4 +1,4 @@
-# 🚀 Mile App Backend
+# Mile App Backend
 
 Backend service for the Mile App Fullstack Test — built using **Go (Gin)** and **MongoDB**, providing RESTful APIs for authentication and Task CRUD operations.
 
