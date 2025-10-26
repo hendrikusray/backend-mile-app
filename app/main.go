@@ -44,8 +44,7 @@ func setupRouter() {
 	r.Use(cors.New(cors.Config{
 		AllowOrigins: []string{
 			"http://localhost:5173",
-			"https://<your-vercel-project>.vercel.app",
-			"https://<custom-domain-kamu>",
+			"https://fe-mile-app-allk.vercel.app/",
 		},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Content-Type", "Authorization"},
